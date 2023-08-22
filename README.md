@@ -35,3 +35,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
   - https://github.com/zdharma/fast-syntax-highlighting
   - https://github.com/zsh-users/zsh-autosuggestions
   - https://github.com/zsh-users/zsh-completions
+
+- Tema
+  - https://github.com/romkatv/powerlevel10k
