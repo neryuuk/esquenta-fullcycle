@@ -13,7 +13,7 @@
 - Compatível com WSL 2
 - Compatível com Windows
 
-### Instalação e configuração
+### Instalação e configuração do WSL 2
 > https://github.com/codeedu/wsl2-docker-quickstart
 
 ```Powershell
@@ -23,3 +23,15 @@ wsl --set-default-version 2
 
 wsl --install
 ```
+
+### Instalação do oh my zsh
+```bash
+sudo apt install zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+- Plugins
+  - https://github.com/zdharma/fast-syntax-highlighting
+  - https://github.com/zsh-users/zsh-autosuggestions
+  - https://github.com/zsh-users/zsh-completions
