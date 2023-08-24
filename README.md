@@ -79,4 +79,15 @@ docker exec -it musing_carver bash
 docker run -p 8080:80 -v ./html:/usr/share/nginx/html nginx
 # -v ~ especifíca um volume (pasta) a ser montado no container
 # ./html:/usr/share/nginx/html ~ Externa:Interna
+
+docker build -t neryuuk/imagem:latest .
+# build ~ cria uma nova imagem
+# -t neryuuk/imagem:latest ~ informações de tagging da imagem
+# . ~ local do Dockerfile a ser utilizado
+
+docker push neryuuk/imagem:latest
+# push ~ publica uma imagem no docker hub
+# neryuuk ~ userspace
+# /imagem ~ repo
+# :latest ~ version
 ```
