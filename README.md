@@ -152,3 +152,24 @@ docker compose down
 docker compose ps
 ```
 > - `ps` ~ exibe containers executados com o `up`
+
+---
+
+# Esquenta (2023-08-15)
+## Intensivão com novo Nest.js 10
+> - https://github.com/devfullcycle/live-imersao-14-nest-10-api
+
+- Nest.js
+  - JS e TS
+  - Integração facilitada com REST, GraphQL, RabbitMQ, etc
+  - Integração facilitada via multiplos ORMs (Sequelize, Prisma, TypeORM)
+  - Trazendo idéias arquiteturais do angular para o backend
+    - Decorators
+    - Modularidade
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+> - https://github.com/nodesource/distributions#debinstall
+> - Instalando o node dentro do WSL
