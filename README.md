@@ -1,7 +1,7 @@
 # Esquenta (2023-08-14)
 ## Como montar o melhor ambiente Dev no Windows, Linux e Mac com WSL2
-> https://www.youtube.com/watch?v=rpvjVtUPnOc
-> https://github.com/argentinaluiz/ambiente-dev-produtivo
+> - https://www.youtube.com/watch?v=rpvjVtUPnOc
+> - https://github.com/argentinaluiz/ambiente-dev-produtivo
 
 ### WSL 2
 - Ambiente linux e seus benefícios
@@ -19,11 +19,11 @@
 > https://github.com/codeedu/wsl2-docker-quickstart
 
 ```Powershell
-wsl --update
+wsl --update # atualiza o WSL
 
-wsl --set-default-version 2
+wsl --set-default-version 2 # define o wsl 2 como padrão
 
-wsl --install
+wsl --install # instala a distro padrão do linux (Ubuntu)
 ```
 
 ### Instalação do oh my zsh
@@ -33,13 +33,12 @@ sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-- Plugins
-  - https://github.com/zdharma/fast-syntax-highlighting
-  - https://github.com/zsh-users/zsh-autosuggestions
-  - https://github.com/zsh-users/zsh-completions
-
-- Tema
-  - https://github.com/romkatv/powerlevel10k
+> - Plugins
+>   - https://github.com/zdharma/fast-syntax-highlighting
+>   - https://github.com/zsh-users/zsh-autosuggestions
+>   - https://github.com/zsh-users/zsh-completions
+> - Tema
+>   - https://github.com/romkatv/powerlevel10k
 
 ## Aprenda Docker do Zero, tutorial passo a passo
 > https://www.youtube.com/watch?v=caAFYcUcgBc
