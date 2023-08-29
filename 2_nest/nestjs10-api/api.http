@@ -1,9 +1,5 @@
 GET http://localhost:3000
 
-###
-
-GET http://localhost:3000/categories
-
 ### CREATE
 POST http://localhost:3000/categories
 Content-Type: application/json
@@ -13,6 +9,9 @@ Content-Type: application/json
   "description": "Category Description"
 }
 
+### READ ALL
+GET http://localhost:3000/categories
+
 ### READ
 GET http://localhost:3000/categories/42
 
@@ -21,11 +20,11 @@ PATCH http://localhost:3000/categories/42
 Content-Type: application/json
 
 {
-  "name": "Category",
-  "description": "Category Description"
+  "name": "scifi",
+  "description": "Ficção Científica"
 }
 
 ### DELETE
-DELETE http://localhost:3000/categories/42
+DELETE http://localhost:3000/categories/44
 
 ###

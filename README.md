@@ -173,3 +173,71 @@ sudo apt-get install -y nodejs
 ```
 > - https://github.com/nodesource/distributions#debinstall
 > - Instalando o node dentro do WSL
+
+---
+
+```bash
+npm i -g @nestjs/cli
+
+npm run start:dev
+```
+> - `npm i -g @nestjs/cli` ~ instalando pacote de maneira global
+> - `npm run start:dev` ~ inicializando script start:dev do package.json
+
+---
+
+```bash
+nest generate module categories
+```
+> - `nest` ~ nest-cli
+> - `generate module` ~ create a new module inside nest structure
+> - `categories` ~ module name is categories
+
+---
+
+```bash
+nest g resource categories
+```
+> - `g` ~ same as generate
+> - `resource` ~ create a new resource (REST, GraphQL, etc) inside nest structure (including CRUD entrypoints)
+
+---
+
+```bash
+npm i @prisma/install
+```
+> - trabalhar com o ORM Prisma
+
+---
+
+```bash
+npx prisma init
+```
+> - `npx` ~ executar um comando em um pacote sem precisar instalar a dependencia no projeto
+> - `prisma init` ~ comando `init` do pacote `prisma`
+
+---
+
+```bash
+npx prisma migrate dev
+```
+> - `migrate dev` ~ executar comando de migração do prisma, para inicializar o DB com base no `schema.prisma`
+
+---
+
+```bash
+nest g module prisma
+```
+> - `module prisma` ~ gerando modulo `prisma`
+
+---
+
+```bash
+nest g service prisma/prisma
+```
+> - `service` ~ criando um novo serviço
+> - `prisma/prisma` ~ serviço prisma dentro do módulo prisma
+
+DTO ~ Data Transfer Object
+- Objeto sem lógica ou regra de negócios
+- Serve apenas para transportar dados

@@ -8,7 +8,9 @@ export class CategoriesService {
   constructor(private prismaService: PrismaService) {}
 
   create(createCategoryDto: CreateCategoryDto) {
-    return 'This action adds a new category'
+    return this.prismaService.category.create({
+      data: createCategoryDto,
+    })
   }
 
   findAll() {
@@ -16,14 +18,17 @@ export class CategoriesService {
   }
 
   findOne(id: number) {
-    return this.prismaService.category.findUnique({ where: { id } })
+    return this.prismaService.category.findUniqueOrThrow({ where: { id } })
   }
 
   update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`
+    return this.prismaService.category.update({
+      where: { id },
+      data: updateCategoryDto,
+    })
   }
 
   remove(id: number) {
-    return `This action removes a #${id} category`
+    return this.prismaService.category.delete({ where: { id } })
   }
 }
