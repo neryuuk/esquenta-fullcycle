@@ -4,7 +4,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
 @Catch(PrismaClientKnownRequestError)
 export class PrismaExceptionFilter implements ExceptionFilter {
   catch(exception: PrismaClientKnownRequestError, host: ArgumentsHost) {
-    console.error(exception)
+    console.log(exception.code, exception.name)
 
     const context = host.switchToHttp()
     const response = context.getResponse()
