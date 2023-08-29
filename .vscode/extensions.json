@@ -3,6 +3,7 @@
     "esbenp.prettier-vscode",
     "ms-azuretools.vscode-docker",
     "dbaeumer.vscode-eslint",
-    "humao.rest-client"
+    "humao.rest-client",
+    "prisma.prisma"
   ]
 }
