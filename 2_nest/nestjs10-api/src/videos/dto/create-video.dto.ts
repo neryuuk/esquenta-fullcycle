@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, MaxLength, isInt } from 'class-validator'
+import { IsInt, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
 
 export class CreateVideoDto {
   @IsNotEmpty()
@@ -14,7 +14,7 @@ export class CreateVideoDto {
   @IsString()
   file_path: string
 
-  @isInt()
+  @IsInt()
   @IsNotEmpty()
-  category_id: int
+  category_id: Number
 }
