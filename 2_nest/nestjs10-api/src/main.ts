@@ -6,10 +6,9 @@ import { CatchAllExceptionFilter } from './categories/exception-filters/catch-al
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  const { httpAdapter } = app.get(HttpAdapterHost)
 
   app.useGlobalFilters(
-    new CatchAllExceptionFilter(httpAdapter),
+    new CatchAllExceptionFilter(app.get(HttpAdapterHost).httpAdapter),
     new PrismaExceptionFilter(),
   )
 
