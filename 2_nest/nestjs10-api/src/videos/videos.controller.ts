@@ -1,7 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { VideosService } from './videos.service';
-import { CreateVideoDto } from './dto/create-video.dto';
-import { UpdateVideoDto } from './dto/update-video.dto';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common'
+import { VideosService } from '@videos/videos.service'
+import { CreateVideoDto } from '@videos/dto/create-video.dto'
+import { UpdateVideoDto } from '@videos/dto/update-video.dto'
 
 @Controller('videos')
 export class VideosController {
@@ -9,26 +17,26 @@ export class VideosController {
 
   @Post()
   create(@Body() createVideoDto: CreateVideoDto) {
-    return this.videosService.create(createVideoDto);
+    return this.videosService.create(createVideoDto)
   }
 
   @Get()
   findAll() {
-    return this.videosService.findAll();
+    return this.videosService.findAll()
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.videosService.findOne(+id);
+    return this.videosService.findOne(+id)
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateVideoDto: UpdateVideoDto) {
-    return this.videosService.update(+id, updateVideoDto);
+    return this.videosService.update(+id, updateVideoDto)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.videosService.remove(+id);
+    return this.videosService.remove(+id)
   }
 }

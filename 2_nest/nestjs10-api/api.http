@@ -28,3 +28,15 @@ Content-Type: application/json
 DELETE http://localhost:3000/categories/44
 
 ###
+
+GET http://localhost:3000/videos
+
+### CREATE
+POST http://localhost:3000/videos
+Content-Type: application/json
+
+{
+  "title": "Video test",
+  "description": "Video test description",
+  "category_id": 8
+}
