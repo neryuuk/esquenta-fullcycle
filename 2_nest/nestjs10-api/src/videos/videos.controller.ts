@@ -9,7 +9,7 @@ import {
   UploadedFile,
   ParseFilePipe,
   UseInterceptors,
-  Res,
+  StreamableFile,
 } from '@nestjs/common'
 import { VideosService } from '@videos/videos.service'
 import { CreateVideoDto, UpdateVideoDto } from '@videos/video.dto'
@@ -58,8 +58,7 @@ export class VideosController {
   }
 
   @Get('file/:file')
-  async file(@Param('file') file: string, @Res() res: Response) {
-    const filestream = this.videosService.file(file)
-    await filestream.pipe(res, { end: true })
+  file(@Param('file') file: string) {
+    return new StreamableFile(this.videosService.file(file))
   }
 }
