@@ -15,6 +15,7 @@ import { VideosService } from '@videos/videos.service'
 import { CreateVideoDto, UpdateVideoDto } from '@videos/video.dto'
 import { VideoFileValidator } from './video-file.validator'
 import { FileInterceptor } from '@nestjs/platform-express'
+import { VideoSerializer } from './video.serializer'
 
 @Controller('videos')
 export class VideosController {
@@ -36,8 +37,9 @@ export class VideosController {
   }
 
   @Get()
-  findAll() {
-    return this.videosService.findAll()
+  async findAll() {
+    const videos = await this.videosService.findAll()
+    return videos.map((video) => new VideoSerializer(video))
   }
 
   @Get(':id')
