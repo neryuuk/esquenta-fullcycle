@@ -2,6 +2,9 @@ import { Injectable } from '@nestjs/common'
 import { CreateVideoDto, UpdateVideoDto } from '@videos/video.dto'
 import { InvalidRelationError } from '@categories/errors/invalid-relation.error'
 import { PrismaService } from '../prisma/prisma/prisma.service'
+import { createReadStream } from 'fs'
+import { join } from 'path'
+import { IllegalCharactersError } from './errors/illegal-characters.error'
 
 @Injectable()
 export class VideosService {
@@ -43,5 +46,13 @@ export class VideosService {
 
   remove(id: number) {
     return this.prismaService.video.delete({ where: { id } })
+  }
+
+  file(file: string) {
+    if (!file.match(/^[a-z0-9_]+\.[a-z0-9]{3}$/)) {
+      throw new IllegalCharactersError('Illegal filename')
+    }
+
+    return createReadStream(join(process.cwd(), 'upload', 'videos', file))
   }
 }

@@ -13,10 +13,9 @@ const storage = multer.diskStorage({
     cb(
       null,
       [
-        Date.now(),
-        (Math.random() * 100000).toFixed(0),
-        path.extname(file.originalname).replaceAll(/[^a-z0-9]+/gi, ''),
-      ].join('.'),
+        `${Date.now()}_${(Math.random() * 100000).toFixed(0)}`,
+        path.extname(file.originalname),
+      ].join(''),
     )
   },
 })

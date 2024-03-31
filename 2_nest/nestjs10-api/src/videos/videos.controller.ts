@@ -9,6 +9,7 @@ import {
   UploadedFile,
   ParseFilePipe,
   UseInterceptors,
+  Res,
 } from '@nestjs/common'
 import { VideosService } from '@videos/videos.service'
 import { CreateVideoDto, UpdateVideoDto } from '@videos/video.dto'
@@ -52,5 +53,11 @@ export class VideosController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.videosService.remove(+id)
+  }
+
+  @Get('file/:file')
+  async file(@Param('file') file: string, @Res() res: Response) {
+    const filestream = this.videosService.file(file)
+    await filestream.pipe(res, { end: true })
   }
 }
