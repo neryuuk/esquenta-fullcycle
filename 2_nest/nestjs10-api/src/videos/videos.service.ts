@@ -7,7 +7,7 @@ import { PrismaService } from '../prisma/prisma/prisma.service'
 export class VideosService {
   constructor(private prismaService: PrismaService) {}
 
-  async create(createVideoDto: CreateVideoDto) {
+  async create(createVideoDto: CreateVideoDto & { file: Express.Multer.File }) {
     const count = await this.prismaService.category.count({
       where: { id: createVideoDto.category_id },
     })
@@ -18,8 +18,10 @@ export class VideosService {
 
     return this.prismaService.video.create({
       data: {
-        ...createVideoDto,
-        file_path: 'foo/bar/video.mp4',
+        title: createVideoDto.title,
+        description: createVideoDto.description,
+        category_id: createVideoDto.category_id,
+        file_path: createVideoDto.file.path,
       },
     })
   }

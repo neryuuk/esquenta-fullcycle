@@ -14,7 +14,12 @@ async function bootstrap() {
     new InvalidRelationExceptionFilter(),
   )
 
-  app.useGlobalPipes(new ValidationPipe({ errorHttpStatusCode: 422 }))
+  app.useGlobalPipes(
+    new ValidationPipe({
+      errorHttpStatusCode: 422,
+      transform: true,
+    }),
+  )
 
   await app.listen(process.env.PORT)
 }

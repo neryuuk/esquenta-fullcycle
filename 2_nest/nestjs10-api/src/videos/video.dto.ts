@@ -1,4 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types'
+import { Type } from 'class-transformer'
 import {
   IsInt,
   IsNotEmpty,
@@ -21,6 +22,7 @@ export class CreateVideoDto {
   @Min(1)
   @IsInt()
   @IsNotEmpty()
+  @Type(() => Number)
   category_id: number
 }
 

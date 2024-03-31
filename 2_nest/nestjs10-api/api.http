@@ -40,3 +40,26 @@ Content-Type: application/json
   "description": "Video test description",
   "category_id": 8
 }
+
+### UPLOAD
+POST http://localhost:3000/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="title"
+
+Video test
+------WebKitFormBoundary
+Content-Disposition: form-data; name="description"
+
+Video test description
+------WebKitFormBoundary
+Content-Disposition: form-data; name="category_id"
+
+1
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="video.mp4"
+Content-Type: video/mp4
+
+< ./video.mp4
+------WebKitFormBoundary--
