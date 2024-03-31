@@ -6,6 +6,7 @@ import { CatchAllExceptionFilter } from '@categories/exception-filters/catch-all
 import { InvalidRelationExceptionFilter } from '@categories/exception-filters/invalid-relation.exception-filter'
 import { IllegalCharactersExceptionFilter } from '@videos/exception-filters/illegal-characters.exception-filter'
 import { CustomLogger } from './custom.logger'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -25,6 +26,19 @@ async function bootstrap() {
       errorHttpStatusCode: 422,
       transform: true,
     }),
+  )
+
+  SwaggerModule.setup(
+    'docs',
+    app,
+    SwaggerModule.createDocument(
+      app,
+      new DocumentBuilder()
+        .setTitle('NestJS 10 - Video API')
+        .setDescription('Esquenta Fullcycle NestJS 10')
+        .setVersion('1.0.0')
+        .build(),
+    ),
   )
 
   await app.listen(process.env.PORT)

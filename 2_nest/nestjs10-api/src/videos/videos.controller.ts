@@ -16,11 +16,28 @@ import { CreateVideoDto, UpdateVideoDto } from '@videos/video.dto'
 import { VideoFileValidator } from './video-file.validator'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { VideoSerializer } from './video.serializer'
+import {
+  ApiBody,
+  ApiConsumes,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger'
+import { Video } from './entities/video.entity'
 
+@ApiTags('Videos')
 @Controller('videos')
 export class VideosController {
   constructor(private readonly videosService: VideosService) {}
 
+  @ApiOperation({ summary: 'Upload new video file' })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({ type: Video })
+  @ApiResponse({
+    status: 201,
+    description: 'Video uploaded',
+    type: Video,
+  })
   @UseInterceptors(FileInterceptor('file'))
   @Post()
   create(

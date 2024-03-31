@@ -26,6 +26,8 @@ export class CreateVideoDto {
   category_id: number
 }
 
-export class CreateVideoWithUploadDto extends CreateVideoDto {}
+export class CreateVideoWithUploadDto extends CreateVideoDto {
+  file: string
+}
 
 export class UpdateVideoDto extends PartialType(CreateVideoDto) {}

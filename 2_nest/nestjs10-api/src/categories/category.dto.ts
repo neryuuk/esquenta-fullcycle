@@ -5,11 +5,11 @@ export class CreateCategoryDto {
   @IsNotEmpty()
   @IsString()
   @MaxLength(255)
-  name: string
+  public name: string
 
   @IsOptional()
   @IsString()
-  description?: string | null
+  public description?: string | null
 }
 
 export class UpdateCategoryDto extends PartialType(CreateCategoryDto) {}
