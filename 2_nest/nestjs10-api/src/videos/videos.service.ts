@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { CreateVideoDto } from '@videos/dto/create-video.dto'
-import { UpdateVideoDto } from '@videos/dto/update-video.dto'
+import { CreateVideoDto, UpdateVideoDto } from '@videos/video.dto'
 import { InvalidRelationError } from '@categories/errors/invalid-relation.error'
 import { PrismaService } from '../prisma/prisma/prisma.service'
 
@@ -36,12 +35,11 @@ export class VideosService {
   update(id: number, updateVideoDto: UpdateVideoDto) {
     return this.prismaService.video.update({
       where: { id },
-      data: { ...updateVideoDto },
+      data: updateVideoDto,
     })
-    return `This action updates a #${id} video`
   }
 
   remove(id: number) {
-    return `This action removes a #${id} video`
+    return this.prismaService.video.delete({ where: { id } })
   }
 }

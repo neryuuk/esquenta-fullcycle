@@ -1,3 +1,4 @@
+import { PartialType } from '@nestjs/mapped-types'
 import {
   IsInt,
   IsNotEmpty,
@@ -24,3 +25,5 @@ export class CreateVideoDto {
 }
 
 export class CreateVideoWithUploadDto extends CreateVideoDto {}
+
+export class UpdateVideoDto extends PartialType(CreateVideoDto) {}
