@@ -289,3 +289,78 @@ npx prisma studio -p 5000 -b none
 > - `-b none` ~ não inicializar navegador
 
 ---
+
+# Esquenta (2023-08-15)
+
+## Iniciando com Kubernetes Tutorial passo a passo
+
+> - https://www.youtube.com/watch?v=CeDbTplpKl4
+
+- Orquestração de containers
+
+  - Scaling up e scaling down (via análise de tráfego / CPU / mem)
+
+- Necessidades
+  - Variáveis de ambientes
+  - Gerenciamento de senhas / secrets
+  - Escolher os recursos computacionais
+  - Health check
+  - Load balancing
+  - SSL / TLS
+  - Domínio
+  - Estratégias de deploy
+  - Storage
+
+```ascii
+┌ K8S ───────────┐
+│┌ POD ─────────┐│
+││┌ CONTAINER ─┐││
+│││┌ APP ─────┐│││
+││││ >_       ││││
+│││└──────────┘│││
+││└────────────┘││
+│└──────────────┘│
+└────────────────┘
+```
+
+- Geralmente 1 pod roda 1 container
+  - Pode rodar mais de um container, em situações específicas
+- Pod provisiona redes e arquiteturas de uma máquina para atender o container
+
+### kind - Gerenciando o k8s
+
+---
+
+```bash
+# Baixando e instalando a versão mais recente do kind
+
+# For AMD64 / x86_64
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+
+# For ARM64
+[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-arm64
+
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+```
+
+---
+
+```bash
+kind create cluster
+```
+
+> - `kind` ~ tool for running local Kubernetes clusters using Docker container
+> - `create cluster` ~ criação de novo cluster
+
+---
+
+```bash
+kubectl cluster-info --context kind-kind
+```
+
+> - `kubectl` ~ K8s command-line tool
+> - `cluster-info` ~ Informações sobre o cluster criado
+> - `--context kind-kind` ~ Nome do kubeconfig context que será utilizado
+
+---
